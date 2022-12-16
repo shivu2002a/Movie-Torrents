@@ -1,0 +1,14 @@
+server:
+    port: 8082
+    # address: 
+
+spring:
+  application.name: Yify-app  
+  mvc:
+    async.request-timeout: 5000
+    pathmatch.matching-strategy: ANT_PATH_MATCHER
+  output:
+    ansi:
+      enabled: always
+
+# springdoc.swagger-ui.path: /swagger-ui-custom.html
