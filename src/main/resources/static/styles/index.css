@@ -1,0 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-whole {
+  background-image:
+    linear-gradient(to right, rgba(159, 211, 29, 0.725), rgb(92, 92, 187)) /*,
+    url('https://images5.alphacoders.com/689/689398.jpg') */;
+  width: 100%;
+  height: 100%;
+  
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: black;
+}
+
+.search {
+  
+}

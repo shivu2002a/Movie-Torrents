@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0 0;
+    font-family: 'Times New Roman';
+}
+
+.container-navbar {
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(rgba(8, 8, 5, 0.75), rgba(234, 236, 235, 0.75));
+}
+
+.logo {
+    width: 4%;
+    cursor: pointer;
+}
+
+.navbar {
+    width: 85%;
+    padding: 35px 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: black;
+    font-size: 35px;
+    font-family:'Times New Roman', Times, serif ;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    text-shadow: 30px;
+    color: aliceblue;
+}
+
+.navbar h1:hover {
+    color: aliceblue;
+} 
+
+.container-search {
+    width: 100%;
+    height: 85%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(https://wallpapercave.com/wp/wp2695371.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.searchbox {
+    position: center;
+    padding: 17% 0 0 25%;
+    width: 70%;
+    height: 10%;
+}
+
+.searchbox input {
+    position: center;
+    width: 70%;
+    height: 50px;
+    border-radius: 15px;
+    font-size: large;
+}
+
+.searchbox input:active{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.searchbutton {
+    position: center;
+    padding: 2% 0 0 41%;
+}
+
+.searchbutton input {
+    position: center;
+    height: 50px;
+    border-radius:15px;
+    font-size: large;
+    width: 25%;
+}
+
+.searchbutton input:hover {
+    box-shadow: inset;
+    background-color: rgba(24, 28, 21, 0.119);
+    color: aliceblue;
+    font-size: large;
+}
+
+.container-trending{
+    background:linear-gradient(rgba(241, 234, 234, 0.75), rgba(0,0,0, 0.75)), url();
+}
+
+.container-trending h1{
+    padding: 3% 41%;
+}
+
+.movies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.movies img, h3{
+    width: 70%;
+    padding: 0 0 3% 14%;
+}
+
+.movies h3{
+    color: aliceblue;
+    padding-bottom: 30%;
+    justify-content: center;
+    display: flex;
+}
+
+footer {
+    height: 15%;
+    background-color: black;
+}
+
+footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-around;
+    align-content: center;
+}
+.footer{
+    width: 40%;
+    padding: 3% 30%;
+    display: center;
+}
+
+footer p, a{
+    color: rgb(239, 234, 234);
+}
