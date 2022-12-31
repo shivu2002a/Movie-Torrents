@@ -1,0 +1,258 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.maincontainer {
+    height: auto;
+    width: auto;
+    display: grid;
+    background: linear-gradient(0, rgb(9, 9, 44), rgb(55, 9, 9));
+}
+
+.nav {
+    z-index: 9;
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.headings {
+    float: right;
+    display: flex;
+    height: 30px;
+    margin-top: 60px;
+
+}
+
+.headings a {
+    float: right;
+    text-decoration: none;
+    color: white;
+    height: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 15px;
+    font-weight: bold;
+    padding: 3px 4px;
+
+}
+
+.headings a:hover {
+    text-decoration: none;
+    color: white;
+
+    border-radius: 3px;
+    transition: 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.additional {
+    width: auto;
+    height: 600px;
+    background-color: black;
+}
+
+.carousel {
+    width: 1500px;
+    height: 600px;
+}
+
+.d-block {
+    width: 1500px;
+    height: 600px;
+}
+
+.carousel-indicators {
+    margin-bottom: 90px;
+}
+
+.search-container {
+    border-radius: 15px;
+}
+
+.search-container [type=text] {
+    padding: 6px;
+    width: 300px;
+    height: 50px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 25px;
+    color: white;
+    border: none;
+    background-color: black;
+}
+
+.search-container button {
+    float: right;
+    padding: 6px 10px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+
+    background: black;
+    color: white;
+    font-size: 17px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background: rgb(59, 57, 57);
+    color: rgb(228, 219, 219);
+}
+
+.context {
+    margin-top: 40px;
+    margin-left: 20px;
+    padding: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+.posters {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: auto;
+}
+
+.videos {
+    padding: 0;
+    margin-left: 40px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10;
+    width: 170px;
+}
+
+.videos :hover {
+    transform: scale(1.002, 1.002);
+    transition: 100ms;
+}
+
+.nameOf {
+    text-align: center;
+}
+
+.nameOf p {
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    padding-top: 7px;
+}
+
+.element {
+    margin: 20px 0px 20px 20px;
+}
+
+.videos video {
+    border-radius: 5px;
+    height: 170px;
+    width: auto;
+}
+
+.videos video:hover::-webkit-media-controls-panel {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: stretch;
+    padding: 16px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-left: 25px;
+}
+
+.content img:hover {
+    transform: scale(1.008);
+}
+
+.findbyname {
+    margin-left: 40px;
+}
+
+
+
+.findbyname .bodie label {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.findbyname .bodie input {
+    color: black;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: normal;
+    padding-left: 10px;
+    border: 1px solid white;
+    border-radius: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    position: sticky;
+    background: transparent;
+}
+
+.bodie {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.m-s {
+    text-align: center;
+    padding-left: 30px;
+}
+
+.last button {
+    color: rgb(15, 14, 14);
+    background-color: rgb(126, 118, 118);
+    width: 180px;
+    border-radius: 6px;
+    padding: 4px;
+    margin-top: 33px;
+    margin-left: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-size: 22px;
+    padding: 2px;
+
+}
+
+.last button:hover {
+
+    color: rgb(18, 16, 16);
+    background-color: rgb(177, 178, 201);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: none;
+}
+
+.footer {
+    display: flex;
+    padding: 40px;
+    background: black;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    text-align: left;
+    padding: 20px;
+    font-size: medium;
+    display: block;
+    font-family: sans-serif;
+    margin: 0;
+}

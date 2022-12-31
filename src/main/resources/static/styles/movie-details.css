@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0 0;
+    font-family: 'Times New Roman';
+    text-decoration: none;
+}
+
+.container-navbar {
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(rgba(8, 8, 5, 0.75), rgba(234, 236, 235, 0.75));
+}
+
+.logo {
+    width: 4%;
+    cursor: pointer;
+}
+
+.navbar {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav {
+    padding: 30px 0 0 0;
+}
+
+h1 {
+    padding: 10px 0 0 0;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: black;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover,
+.navbar ul li button:hover {
+    text-shadow: 30px;
+    color: aliceblue;
+}
+
+.navbar h1:hover {
+    color: aliceblue;
+}
+
+.navbar button {
+    border: none;
+    background: none;
+    font-size: 35px;
+}
+
+.container-movie-details {
+    float: right;
+}
+
+.card-body * {
+    color: aliceblue;
+}
+.card-body {
+    background-size:cover ;
+    height: 100%;
+    background-repeat: no-repeat;
+}
+.details {
+    padding: 3%;
+}
+
+.table-borderless input {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	outline: inherit;
+}
+
+
+/* Footer */
+footer {
+    height: 15%;
+    background-color: black;
+}
+
+.footer {
+    padding-top: 3%;
+}
+
+footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-content: center;
+}
+
+footer {
+    color: rgb(239, 234, 234);
+}

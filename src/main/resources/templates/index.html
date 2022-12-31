@@ -1,0 +1,85 @@
+<html lang="en" xmlns="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample</title>
+    <link rel="stylesheet" th:href="@{../styles/sample.css}">
+</head>
+
+<body>
+    <header>
+        <div class="container-navbar">
+            <div class="navbar">
+                <h1>YTS-India</h1>
+                <!-- <img src="https://yt3.googleusercontent.com/vnQYDSGtKFu7LenJX864ylaHIDJZlQm33FU7KQnRfKW4slSo77nV0JwkmEXYhUFwtUxMwq5W=s900-c-k-c0x00ffffff-no-rj" alt="logo" class="logo"> -->
+                <nav>
+                    <ul>
+                        <li> <a th:href="@{/}">Home</a> </li>
+                        <li> <a th:href="@{/movies}">Browse</a> </li>
+                        <li> <a th:href="@{/movies}">4K</a> </li>
+                        <li> <a href="#trending">Trending</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container-search">
+            <form th:action="@{/movies}" method="get">
+                <div class="searchbox">
+                    <input th:name="query_term" id="query_term" type="text" placeholder="Which movie do you want?">
+                </div>
+                
+                <div class="searchbutton">
+                    <input th:name="action" th:value="Search" type="submit">
+                </div>
+
+            </form>
+        </div>
+        <div class="container-trending" id="trending">
+            <div class="t-head">
+                <h1>Trending movies </h1>
+            </div>
+            <div class="movies">
+                <div class="mov1">
+                    <img src="https://img-yts-mx.translate.goog/assets/images/movies/Unbreakable_2000/large-cover.jpg?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp"
+                        alt="" srcset="">
+                    <h3>banshees of Insherin</h3>
+                </div>
+                <div class="mov1">
+                    <img src="https://img-yts-mx.translate.goog/assets/images/movies/Unbreakable_2000/large-cover.jpg?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp"
+                        alt="" srcset="">
+                    <h3>banshees of Insherin</h3>
+                </div>
+                <div class="mov1">
+                    <img src="https://img-yts-mx.translate.goog/assets/images/movies/Unbreakable_2000/large-cover.jpg?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp"
+                        alt="" srcset="">
+                    <h3>banshees of Insherin</h3>
+                </div>
+                <div class="mov1">
+                    <img src="https://img-yts-mx.translate.goog/assets/images/movies/Unbreakable_2000/large-cover.jpg?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp"
+                        alt="" srcset="">
+                    <h3>banshees of Insherin</h3>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <ul>
+                <li>
+                    <p> ©Shivanagouda - 2022</p>
+                </li>
+                <li> <a th:href="@{/swagger-ui/}">API Documentation</a></li>
+                <li> <a th:href="@{/movies/}">Browse Movies</a></li>
+                <li> <a th:href="@{//}">Home</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>
