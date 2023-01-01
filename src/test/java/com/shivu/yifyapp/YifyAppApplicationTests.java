@@ -20,7 +20,7 @@ class YifyAppApplicationTests {
 	@Test
 	void contextLoads() throws IOException {
 		//Given
-		String jsonType = "application/json";
+		String jsonType = "text/html";
 		//Request
 		HttpUriRequest req = new HttpGet("http://localhost:8082/movies");
 		//Response
@@ -33,7 +33,6 @@ class YifyAppApplicationTests {
 	@Test
 	void searchMovieById() throws IOException {
 		//Given
-
 		HttpUriRequest req = new HttpGet("http://localhost:8082/movies?movie_id=" + String.valueOf(new Random().nextInt(65000) + 1));
 		HttpResponse res = HttpClientBuilder.create().build().execute(req);
 		assertEquals(HttpStatus.SC_OK, res.getStatusLine().getStatusCode());
