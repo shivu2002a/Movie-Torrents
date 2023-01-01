@@ -1,4 +1,4 @@
-package com.shivu.yifyapp.Models;
+package com.shivu.yifyapp.Models.Search;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

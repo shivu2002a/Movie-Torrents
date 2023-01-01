@@ -1,11 +1,11 @@
-package com.shivu.yifyapp.Models;
+package com.shivu.yifyapp.Models.MovieDetails;
 
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @ToString
 @NoArgsConstructor
-public class Search {
+public class SearchMovie {
 
     public String status;
 
