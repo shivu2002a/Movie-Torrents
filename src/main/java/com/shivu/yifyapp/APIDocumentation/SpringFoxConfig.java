@@ -21,16 +21,17 @@ public class SpringFoxConfig {
           .select()                                  
           .apis(RequestHandlerSelectors.any())              
           .paths(PathSelectors.any())                          
-          .build();                                           
+          .build();                                          
     }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfo(
-          "My REST API", 
-          "Some custom description of API.", 
-          "API TOS", 
-          "Terms of service", 
-          new Contact("Shivanagouda S A", "", "shivanagouda0102@gmail.com"), 
-          "License of API", "API license URL", null);
-    }
+    // @Bean
+    // public ApiInfo apiInfo() {
+    //     return new ApiInfo(
+    //       "My REST API", 
+    //       "Some custom description of API.", 
+    //       "API TOS", 
+    //       "Terms of service", 
+    //       new Contact("Shivanagouda S A", "", "shivanagouda0102@gmail.com"), 
+    //       "License of API", "API license URL", null);
+    // }
 }
