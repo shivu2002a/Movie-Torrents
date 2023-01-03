@@ -108,6 +108,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>yifyapp</finalName>
 	</build>
 	<repositories>
 		<repository>
