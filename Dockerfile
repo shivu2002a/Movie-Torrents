@@ -9,7 +9,7 @@ RUN mvn clean package -DskipTests
 # Package stage
 #
 FROM openjdk:11-jdk-slim
-COPY --from=build /target/yifyapp-0.0.1-SNAPSHOT.jar yifyapp.jar
+COPY --from=build /target/yifyapp.jar yifyapp.jar
 # ENV PORT=8080
 EXPOSE 8082
-ENTRYPOINT ["java","-jar","yifyapp.jar"]
+ENTRYPOINT ["java","-jar","/yifyapp.jar"]
