@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample</title>
+    <title>Magnet torrents</title>
     <link rel="stylesheet" th:href="@{../styles/sample.css}">
 </head>
 
@@ -12,15 +12,20 @@
     <header>
         <div class="container-navbar">
             <div class="navbar">
-                <h1>YTS-India</h1>
+                <h1>MagTor</h1>
                 <!-- <img src="https://yt3.googleusercontent.com/vnQYDSGtKFu7LenJX864ylaHIDJZlQm33FU7KQnRfKW4slSo77nV0JwkmEXYhUFwtUxMwq5W=s900-c-k-c0x00ffffff-no-rj" alt="logo" class="logo"> -->
                 <nav>
-                    <ul>
-                        <li> <a th:href="@{/}">Home</a> </li>
-                        <li> <a th:href="@{/movies}">Browse</a> </li>
-                        <li> <a th:href="@{/movies}">4K</a> </li>
-                        <li> <a href="#trending">Trending</a></li>
+                    <ul class="nav-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/}">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">Browse</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">4K</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="#trending">Trending</a></li>
                     </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -32,9 +37,9 @@
                 <div class="searchbox">
                     <input th:name="query_term" id="query_term" type="text" placeholder="Which movie do you want?">
                 </div>
-                
+
                 <div class="searchbutton">
-                    <input th:name="action" th:value="Search" type="submit">
+                    <input th:name="action" id="submit" th:value="Search" type="submit">
                 </div>
 
             </form>
@@ -81,5 +86,6 @@
         </div>
     </footer>
 </body>
+<script type="text/javascript" th:src="@{../scripts/navToHam.js}"></script>
 
 </html>

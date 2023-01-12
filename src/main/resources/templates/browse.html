@@ -17,27 +17,46 @@
     <header>
         <div class="container-navbar">
             <div class="navbar">
-                <h1>YTS-India</h1>
+                <h1 style="font-weight:bold; padding-top: 7px;">MagTor</h1>
                 <!-- <img src="https://yt3.googleusercontent.com/vnQYDSGtKFu7LenJX864ylaHIDJZlQm33FU7KQnRfKW4slSo77nV0JwkmEXYhUFwtUxMwq5W=s900-c-k-c0x00ffffff-no-rj" alt="logo" class="logo"> -->
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/}">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">Browse</a> </li>
+                        <li class="nav-item"> <a class="nav-link" onclick="searchBox()">Search</a></li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">4K</a> </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- <div class="container-navbar">
+            <div class="navbar">
+                <h1>YTS-India</h1>
+                 <img src="https://yt3.googleusercontent.com/vnQYDSGtKFu7LenJX864ylaHIDJZlQm33FU7KQnRfKW4slSo77nV0JwkmEXYhUFwtUxMwq5W=s900-c-k-c0x00ffffff-no-rj" alt="logo" class="logo">
                 <nav>
                     <ul>
                         <li> <a th:href="@{/}">Home</a> </li>
                         <li> <a th:href="@{/movies}">Browse</a> </li>
-                        <!-- <li> <button th:onclick="searchBox()">Search</button></li> -->
+                         <li> <button th:onclick="searchBox()">Search</button></li> 
                         <li> <button onclick="searchBox()">Search</button></li>
                         <li> <a th:href="@{/movies}">4K</a> </li>
                         <li> <a href="#trending">Trending</a></li>
                     </ul>
                 </nav>
             </div>
-        </div>
+        </div> -->
     </header>
 
     <main>
         <div class="search-container">
             <form th:action="@{/movies}" method="GET">
                 <div class="searchbox">
-                    <input class="box" th:name="query_term" type="text" placeholder="Name of the movie">
+                    <input class="box" th:name="query_term" type="text" placeholder="Movie name">
                     <input class="search-button" th:name="action" th:value="Search" type="submit">
                 </div>
                 <div class="searchfilters">
@@ -142,7 +161,7 @@
                         <p th:text=" 'Year: ' + ${mov.year}"></p>
                         <a th:href="@{|${mov.torrents.get(0).magnetTorrent}|}"
                             th:text="${mov.torrents.get(0).quality} + ' ' + ${mov.torrents.get(0).type} "></a>
-                        <a th:if="${mov.torrents.get(1) != null}" th:href="@{|${mov.torrents.get(1).magnetTorrent}|}"
+                        <a th:if="${#lists.size(mov.torrents).equals(2)}" th:href="@{|${mov.torrents.get(1).magnetTorrent}|}"
                             th:text="${mov.torrents.get(1).quality} + ' ' + ${mov.torrents.get(1).type} "></a>
                         <!-- <img th:src="@{../images/torr-icon.png}" alt="Magnet torrent link" srcset=""> -->
                     </div>
@@ -168,5 +187,6 @@
     </footer>
 </body>
 <script type="text/javascript" th:src="@{../scripts/search.js}"></script>
+<script type="text/javascript" th:src="@{../scripts/navToHam.js}"></script>
 
 </html>
