@@ -63,7 +63,7 @@ public class ListMovies {
                 .uri(uri + Home.END)
                 .retrieve()
                 .bodyToMono(Search.class)
-                .timeout(Duration.ofSeconds(5));
+                .timeout(Duration.ofSeconds(10));
         Search result = se.block();
         if(result.data.movies != null) {
             Home.imageSetup(result);
@@ -85,19 +85,26 @@ public class ListMovies {
                                     .uri(uri + Home.END)
                                     .retrieve()
                                     .bodyToMono(SearchMovie.class)
-                                    .timeout(Duration.ofSeconds(5));
+                                    .timeout(Duration.ofSeconds(10));
         SearchMovie movieDetails = mono.block();
         Home.magnetTorrent(movieDetails);
         Home.imageSetup(movieDetails);
+        model.addAttribute("movie", movieDetails);
+
+        String imdbCode = movieDetails.data.movie.imdb_code;
 
         //Get top crew from imdb-code Use rapid api
+        RapidApis.getCrew(model, imdbCode);
         
+        //Cast
+        RapidApis.getCast(model, imdbCode);
         
         //Get reviews from imdb-code Use rapid api
-        
+        RapidApis.getReviews(model, imdbCode);
         
         //Get images from imdb-code Use rapid api
-        model.addAttribute("movie", movieDetails);
+        RapidApis.getImages(model, imdbCode);
+        
 
         //suggestions
         uri = "movie_suggestions.json?movie_id=" + id;
