@@ -8,7 +8,8 @@
 .container-navbar {
     width: 100%;
     height: 15%;
-    background: linear-gradient(rgba(8, 8, 5, 0.75), rgba(234, 236, 235, 0.75));
+    /* background: linear-gradient(rgba(8, 8, 5, 0.75), rgba(234, 236, 235, 0.75)); */
+    background: #a2ef36f3;
 }
 
 .logo {
@@ -39,19 +40,120 @@
 }
 
 .navbar ul li a:hover,
-.navbar ul li button:hover {
+.navbar ul li button:hover,
+.navbar h1:hover {
     text-shadow: 30px;
-    color: aliceblue;
+    color: #ff3321ef;
 }
 
-.navbar h1:hover {
-    color: aliceblue;
-}
 
 .navbar button {
     border: none;
     background: none;
     font-size: 35px;
+}
+
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar ul li {
+        display: block;
+        padding: 1%;
+    }
+
+    .navbar ul li a {
+        color: #a2ef36f3;
+        font-weight: bolder;
+        font-size: large;
+    }
+
+    .navbar ul li a:hover {
+        color: #ff3321ef;
+    }
+
+    .nav-menu {
+        position:fixed;
+        z-index: 3;
+        left: -100%;
+        top: 6rem;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        background-color: #000000f3;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+
+    .searchbox {
+        padding: 5% 0 0 5%;
+    }
+
+    .searchbox #query_term {
+        width: 80%;
+    }
+
+    .searchbutton #submit {
+        width: 40%;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .searchbox {
+        padding: 0;
+    }
+
+    .searchbox .box {
+        width: 80%;
+        font-size: large;
+        margin: 0;
+    }
+
+    .selects-container {
+        margin: 2% 0;
+        padding-bottom: 3%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: aliceblue;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
 }
 
 /*Search movie */
@@ -97,8 +199,20 @@
 
 .search_query p {
     padding: 2% 0 0 4%;
-    font-size: 30px;
     font-weight: bold;
+}
+
+@media only screen and (min-width: 770px) {
+    .search_query p {
+        font-size: 30px;
+    }
+
+    .card-group {
+        display: inline-flex;
+        justify-content: center;
+        align-items: space-around;
+        width: 20%;
+    }
 }
 
 .card-group {
@@ -108,7 +222,11 @@
     width: 20%;
     margin: 2% 0 0 4%;
 }
-
+@media only screen and (max-width:768px) {
+    .card-group {
+        width: 43%;
+    }
+}
 .card {
     white-space: nowrap;
     overflow: hidden;
@@ -130,6 +248,14 @@
     font-size: 30px;
 }
 
+
+@media only screen and (max-width:768px) {
+    .tor-det, .tor-det a {
+        top: 20%;
+        left: 25%;
+        font-size: medium;
+    }
+}
 .tor-det a {
     display: block;
     text-align: center;
@@ -138,37 +264,44 @@
     color: rgba(0, 0, 0, 0.43);
     font-size: 30px;
 }
+@media only screen and (max-width:768px) {
+    .tor-det a {
+        font-size: medium;
+    }
+}
 
 .tor-det a:hover {
     color: rgba(0, 0, 0);
-    
+
 }
-
-
-
-
-
-
-
-
-
-
-
 
 footer {
-    height: 15%;
+    height:15%;
     background-color: black;
 }
+
 .footer {
     padding-top: 3%;
 }
+
 footer ul {
     display: flex;
+    padding: 0% 30%;
     align-items: center;
-    justify-content:space-around;
-    align-content: center;
+    justify-content: space-between;
+}
+footer, footer a {
+    text-decoration: none;
+    color: rgb(239, 234, 234);
 }
 
-footer {
-    color: rgb(239, 234, 234);
+@media only screen and (max-width:768px) {
+    footer ul {
+        padding: 0 10%;
+        display: block;
+    }
+
+    footer {
+        height: 20%;
+    }
 }
