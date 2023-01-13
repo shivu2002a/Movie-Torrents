@@ -1,4 +1,5 @@
 <html lang="en" xmlns="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,26 +11,151 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{../styles/movie-not-found.css}">
     <title>Movie not found</title>
-    
+
 </head>
+
 <body>
     <header>
-        <div class="navbar">
-            <h1>MagTor</h1>
-            <nav>
-                <a th:href="@{/}">Home</a>
-                <a th:href="@{/movies}">Browse</a>
-                <a th:href="@{/}">Trending</a>
-            </nav>
+        <div class="container-navbar">
+            <div class="navbar">
+                <h1 style="font-weight:bold">MagTor</h1>
+                <!-- <img src="https://yt3.googleusercontent.com/vnQYDSGtKFu7LenJX864ylaHIDJZlQm33FU7KQnRfKW4slSo77nV0JwkmEXYhUFwtUxMwq5W=s900-c-k-c0x00ffffff-no-rj" alt="logo" class="logo"> -->
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/}">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">Browse</a> </li>
+                        <li class="nav-item"> <a class="nav-link" onclick="searchBox()">Search</a></li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">4K</a> </li>
+                    </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
     <main>
-        <h1>Movie not found</h1>
+        <div class="search-container">
+            <form th:action="@{/movies}" method="GET">
+                <div class="searchbox">
+                    <input class="box" th:name="query_term" type="text" placeholder="Movie name">
+                    <input class="search-button" th:name="action" th:value="Search" type="submit">
+                </div>
+                <div class="searchfilters">
+                    <div class="selects-container">
+                        <div class="search-filts">
+                            <span>Genre:</span>
+                            <select th:name="genre">
+                                <option value="all">All</option>
+                                <option value="action">Action</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="animation">Animation</option>
+                                <option value="biography">Biography</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="crime">Crime</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="drama">Drama</option>
+                                <option value="family">Family</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="film-noir">Film-Noir</option>
+                                <option value="game-show">Game-Show</option>
+                                <option value="history">History</option>
+                                <option value="horror">Horror</option>
+                                <option value="music">Music</option>
+                                <option value="musical">Musical</option>
+                                <option value="mystery">Mystery</option>
+                                <option value="news">News</option>
+                                <option value="reality-tv">Reality-TV</option>
+                                <option value="romance">Romance</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                                <option value="sport">Sport</option>
+                                <option value="talk-show">Talk-Show</option>
+                                <option value="thriller">Thriller</option>
+                                <option value="war">War</option>
+                                <option value="western">Western</option>
+                            </select>
+                        </div>
+                        <div class="search-filts">
+                            <span>Language:</span>
+                            <select th:name="language">
+                                <option value="en">English</option>
+                                <option value="foreign">Foreign</option>
+                                <option value="all" selected="selected">--------All--------</option>
+                                <option value="kn">Kannada (6)</option>
+                                <option value="hi">Hindi (481)</option>
+                                <option value="ta">Tamil (83)</option>
+                                <option value="mr">Marathi (4)</option>
+                                <option value="ur">Urdu (17)</option>
+                                <option value="ta">Tamil (83)</option>
+                                <option value="te">Telugu (73)</option>
+                                <option value="ml">Malayalam (17)</option>
+                                <option value="fr">French (2241)</option>
+                                <option value="no">Norwegian (112)</option>
+                                <option value="ja">Japanese (1991)</option>
+                                <option value="es">Spanish (1136)</option>
+                                <option value="it">Italian (1086)</option>
+                                <option value="de">German (854)</option>
+                            </select>
+                        </div>
+                        <div class="search-filts">
+                            <span>Quality:</span>
+                            <select th:name="quality">
+                                <option value="all">All</option>
+                                <option value="720p">720p</option>
+                                <option value="1080p">1080p</option>
+                                <option value="2160p">2160p</option>
+                                <option value="3D">3D</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span>Order by:</span>
+                            <select th:name="order_by">
+                                <option value="latest">Latest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="featured">Featured</option>
+                                <option value="seeds">Seeds</option>
+                                <option value="peers">Peers</option>
+                                <option value="year">Year</option>
+                                <option value="rating">IMDb Rating</option>
+                                <option value="likes">YTS Likes</option>
+                                <option value="rt_audience">RT Audience</option>
+                                <option value="alphabetical">Alphabetical</option>
+                                <option value="downloads">Downloads</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="nomovie">
+            <p>It is very dark and silent here. Nothing like </p>
+            <p id="query" th:text=" '\'' + ${query_term} + '\'' "></p>
+            <p>
+                 exists.
+            </p>
+            <p>Try searching for something else..</p>
+
+        </div>
     </main>
 
     <footer>
-        
+        <div class="footer">
+            <ul>
+                <li>
+                    <span> ©Shivanagouda - 2022</span>
+                </li>
+                <li> <a th:href="@{/swagger-ui/}">API Documentation</a></li>
+                <li> <a th:href="@{/movies/}">Browse Movies</a></li>
+                <li> <a th:href="@{/}">Home</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
+<script th:src="@{../scripts/navToHam.js}"></script>
+<script th:src="@{../scripts/search.js}"></script>
+
 </html>

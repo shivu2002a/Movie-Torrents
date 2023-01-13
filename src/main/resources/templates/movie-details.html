@@ -19,16 +19,19 @@
     <header>
         <div class="container-navbar">
             <div class="navbar">
-                <h1>MagTor</h1>
+                <h1 style="font-weight:bold;">MagTor</h1>
                 <!-- <img src="https://yt3.googleusercontent.com/vnQYDSGtKFu7LenJX864ylaHIDJZlQm33FU7KQnRfKW4slSo77nV0JwkmEXYhUFwtUxMwq5W=s900-c-k-c0x00ffffff-no-rj" alt="logo" class="logo"> -->
                 <nav>
-                    <ul>
-                        <li> <a th:href="@{/}">Home</a> </li>
-                        <li> <a th:href="@{/movies}">Browse</a> </li>
-                        <!-- <li> <button th:onclick="searchBox()">Search</button></li> -->
-                        <li> <a th:href="@{/movies}">4K</a> </li>
-                        <li> <a href="#trending">Trending</a></li>
+                    <ul class="nav-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/}">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">Browse</a> </li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{/movies}">4K</a> </li>
                     </ul>
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
                 </nav>
             </div>
         </div>
@@ -72,7 +75,8 @@
                                     <td th:text="${torrent.quality}">Otto</td>
                                     <td th:text="${torrent.size}">Otto</td>
                                     <td>
-                                        <a th:href="@{|${torrent.magnetTorrent}|}"> <input type="button" th:value="magnet">
+                                        <a th:href="@{|${torrent.magnetTorrent}|}"> <input type="button"
+                                                th:value="magnet">
                                     </td>
                             </tbody>
                         </table>
@@ -90,11 +94,11 @@
         <div class="footer">
             <ul>
                 <li>
-                    <p> ©Shivanagouda - 2022</p>
+                    <span> ©Shivanagouda - 2022</span>
                 </li>
                 <li> <a th:href="@{/swagger-ui/}">API Documentation</a></li>
-                <li> <a th:href="@{/movies/}">Browse Movies</a></li>
-                <li> <a th:href="@{//}">Home</a></li>
+                <li> <a th:href="@{/movies/}">Browse Movies </a></li>
+                <li> <a th:href="@{/}">Home</a></li>
             </ul>
         </div>
     </footer>
@@ -102,6 +106,5 @@
 
 
 </body>
-<script th:src="@{../scripts/search.js}"></script>
 
 </html>
