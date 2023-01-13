@@ -1,8 +1,14 @@
 package com.shivu.yifyapp.Controllers;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import com.shivu.yifyapp.Models.MovieDetails.Crew;
+
+import reactor.core.publisher.Mono;
 
 public class RapidApis {
 
@@ -15,54 +21,84 @@ public class RapidApis {
                             "8a57a5d4a4msh36cc65d9cf1786ap11ced0jsnc5310f4696cf");
                     headers.set("X-RapidAPI-Host", "imdb8.p.rapidapi.com");
                 })
-                // .clientConnector(new ReactorClientHttpConnector((HttpClient.create()
-                // .attr(AttributeKey.valueOf("X-RapidAPI-Key"),
-                // "8a57a5d4a4msh36cc65d9cf1786ap11ced0jsnc5310f4696cf")
-                // .attr(AttributeKey.valueOf("X-RapidAPI-Host"), "imdb8.p.rapidapi.com"))))
                 .build();
     }
+
     RapidApis() {
 
     }
 
-    // public static void getCrew(Model model, String imdbCode) {
-    //     if (imdbCode == null)
-    //         return;
-    //     String topcrew = wb.get()
-    //             .uri("https://imdb8.p.rapidapi.com/title/get-top-crew?tconst=tt0944947")
-    //             .retrieve()
-    //             .bodyToMono(String.class)
-    //             .block();
-    //     System.out.println(topcrew);
+    // public static void main(String[] args) {
+    //     getCrew(null, "tt0137523");
     // }
 
-    // public static void getReviews(Model model, String imdbCode) {
-    //     if (imdbCode == null)
-    //         return;
+    public static void getCrew(Model model, String imdbCode) {
+        if(imdbCode == null)
+            return;
+        Mono<String> monocrew = wb.get()
+                .uri("https://imdb8.p.rapidapi.com/title/get-top-crew?tconst=" + imdbCode)
+                .retrieve()
+                .bodyToMono(String.class);
+                
+        String topcrew = monocrew.block();
+        System.out.println(topcrew);
+        JSONObject json = new JSONObject(topcrew); 
+        JSONObject jdirs = json.getJSONArray("directors").getJSONObject(0);
+        JSONObject jwriters = json.getJSONArray("writers").getJSONObject(0);
+        Crew crew = new Crew();
 
-    // }
+        crew.d_name = jdirs.getString("name");
+        crew.d_category = jdirs.getString("category");
+        crew.d_image = jdirs.getJSONObject("image").getString("url");
+        
+        crew.w_name = jwriters.getString("name");
+        crew.w_category = jwriters.getString("category");
+        crew.w_job = jwriters.optString("job");
+        crew.w_image = jwriters.getJSONObject("image").getString("url");
+        
+        // model.addAttribute("crew", crew);
+        System.out.println("\n\n" + crew);
+    }
 
-    // public static void getImages(Model model, String imdbCode) {
-    //     if (imdbCode == null)
-    //         return;
+    public static void getReviews(Model model, String imdbCode) {
+        if (imdbCode == null)
+            return;
+        String images = wb.get()
+                .uri("https://imdb8.p.rapidapi.com/title/get-images?tconst=" + imdbCode + "&limit=5")
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        JSONObject j = new JSONObject(images);
+        JSONArray img = j.getJSONArray("images");
+        for (int i = 0; (i < 5) && i < img.length() ; i++) {
+            
+        }
 
-    //     String images = wb.get()
-    //             .uri("https://imdb8.p.rapidapi.com/title/get-images?tconst=tt0944947&limit=5")
-    //             .retrieve()
-    //             .bodyToMono(String.class)
-    //             .block();
-    //     System.out.println(images);
-    // }
+        System.out.println("\n\n" + images);
 
-    // public static void getCast(Model model, String imdbCode) {
-    //     if (imdbCode == null)
-    //         return;
+    }
 
-    //     String cast = wb.get()
-    //             .uri("https://imdb8.p.rapidapi.com/title/get-top-cast?tconst=tt0944947")
-    //             .retrieve()
-    //             .bodyToMono(String.class)
-    //             .block();
-    //     System.out.println(cast);
-    // }
+    public static void getImages(Model model, String imdbCode) {
+        if (imdbCode == null)
+            return;
+
+        String images = wb.get()
+                .uri("https://imdb8.p.rapidapi.com/title/get-images?tconst=" + imdbCode + "&limit=5")
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        
+        System.out.println(images);
+    }
+
+    public static void getCast(Model model, String imdbCode) {
+        if (imdbCode == null)
+            return;
+        String cast = wb.get()
+                .uri("https://imdb8.p.rapidapi.com/title/get-top-cast?tconst=" + imdbCode)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        System.out.println(cast);
+    }
 }
