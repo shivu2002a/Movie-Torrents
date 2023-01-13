@@ -65,11 +65,12 @@ public class ListMovies {
                 .bodyToMono(Search.class)
                 .timeout(Duration.ofSeconds(10));
         Search result = se.block();
+        model.addAttribute("query_term", query);
+
         if(result.data.movies != null) {
             Home.imageSetup(result);
             Home.magnetTorrent(result);
             model.addAttribute("movie", result);
-            model.addAttribute("query_term", query);
             return "browse";
         }
         return "movie-not-found";
@@ -94,16 +95,16 @@ public class ListMovies {
         String imdbCode = movieDetails.data.movie.imdb_code;
 
         //Get top crew from imdb-code Use rapid api
-        RapidApis.getCrew(model, imdbCode);
+        // RapidApis.getCrew(model, imdbCode);
         
-        //Cast
-        RapidApis.getCast(model, imdbCode);
+        // Cast
+        // RapidApis.getCast(model, imdbCode);
         
-        //Get reviews from imdb-code Use rapid api
-        RapidApis.getReviews(model, imdbCode);
+        // Get reviews from imdb-code Use rapid api
+        // RapidApis.getReviews(model, imdbCode);
         
-        //Get images from imdb-code Use rapid api
-        RapidApis.getImages(model, imdbCode);
+        // Get images from imdb-code Use rapid api
+        // RapidApis.getImages(model, imdbCode);
         
 
         //suggestions
